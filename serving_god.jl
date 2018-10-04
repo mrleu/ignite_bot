@@ -76,5 +76,4 @@ function main()
     result = Dict("prayers" => prayers, "ushers" => ushers)
     write_result(JSON.json(result), coming_sunday)
 end
-
 main()
