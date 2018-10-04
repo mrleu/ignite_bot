@@ -25,10 +25,9 @@ function get_prayers(served, ushers, num_prayers=2)
     println("Prayer")
     served_prayers = sort(StatsBase.countmap(served), byvalue=true)
     println("Served Frequency")
-    println(served_prayers)
     # delete ushers
     for usher in ushers
-        served_prayers_ = delete!(served_prayers, usher)
+        delete!(served_prayers, usher)
     end
     serving_prayers = collect(keys(served_prayers))[1:num_prayers]
     return serving_prayers
@@ -76,4 +75,5 @@ function main()
     result = Dict("prayers" => prayers, "ushers" => ushers)
     write_result(JSON.json(result), coming_sunday)
 end
+
 main()
